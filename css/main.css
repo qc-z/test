@@ -605,7 +605,7 @@ border-bottom: 3px solid #E92322;
 @media (max-width: 768px) {
    #news .nav-stacked > li {
         float: left;
-        margin-right: 20px;
+       
     }
     
 }
