@@ -47,5 +47,39 @@ $(document).ready(function (){
 
     });
 
+
+
+//    获取容器
+    var $carousels = $(".carousel");
+    var starX, endX;
+    var len = 50;//规定范围
+
+
+//    调用.carousel('prev')  .carousel('next') 方法
+
+//    注册事件
+    $carousels.on("touchstart",function (e){
+        //    手指开始移动  touchstart
+        //console.log(e.originalEvent.touches["0"].clientX);
+        starX = e.originalEvent.touches["0"].clientX;
+    });
+    $carousels.on("touchmove",function (e){
+        //    比较手指移动过程的坐标 touchmove
+        //console.log(e.originalEvent.touches["0"].clientX);
+        endX = e.originalEvent.touches["0"].clientX;
+        //console.log(endX);
+    });
+    $carousels.on("touchend",function (e){
+        //    比较手指最后的坐标 touchend
+        var end = Math.abs(starX - endX);
+        //console.log(end);
+        if (end > len){
+            $(this).carousel(starX - endX >0?"next":"prev");
+
+        }
+    });
+
+
+
 })
 
